@@ -31,7 +31,7 @@ The Github Profile Analyser tells the User about the no. of people visiting on h
 
 ### Stats Page | Main Page :-
 
-![MainPage](static/images/profile.png)
+![MainPage](static/images/main.png)
 
 * The Third page is of **Graph Page** which has been produced using **PLOTLY**. Here a **2-D Graph** is generated which shows which repo is **more popular.**
 
