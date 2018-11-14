@@ -1,0 +1,88 @@
+header {
+  position: absolute;
+  background-color: black;
+  height: 100%;
+  min-height:100%;
+  min-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.modal-header .close {
+    padding: 1rem;
+    margin-left:  0 !important;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+  header video {
+    display: none;
+  }
+}
+.boom{
+      border-bottom: none;
+}
+.try1{
+  margin-left: 0;
+}
+.center{
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+#myModal{
+  opacity: 0.9;
+  padding-left: 0;
+}
+.input-name{
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+/* input[type="text"],input[type=password]{
+  border: none;
+  border-bottom: 2px solid grey;
+  outline: none;
+  margin-top: 25px;
+ margin-bottom: 25px;
+}
+#userid{
+  border: none;
+  border-bottom: 2px solid grey;
+  outline: none;
+  margin-top: 25px;
+ margin-bottom: 25px;
+} */
+input:focus{
+  border: transparent !important;
+}
+button[type=submit]{
+  margin-top: 10px;
+ margin-bottom: 10px;
+}

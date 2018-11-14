@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Github Profile Analyser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../static/images/githubicon.png" sizes="400x400">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/animate.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#myModal').modal('show');
+        });
+    </script>
+    <header>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="../static/images/videoplayback.mp4" type="video/mp4">
+        </video>
+    </header>
+    <div class="name wow fadeIn"  data-wow-duration="0.5s" data-wow-delay="1s">
+    <div class="modal fade" id="myModal" style="display: block; padding-left: 0;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="modal-header" style=" border-bottom: none;">
+
+                                <img src="../static/images/Desktop2.jpg" class="center" >
+
+                            <button type="button" class="close try1" data-dismiss="modal">&times;</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-body">
+
+                    <div class="container">
+                        <h2 style="padding-bottom:10px;">Analyse your Github account!</h2>
+                        <form action="/signin/" method="post">
+                            <div class="form-group">
+
+                                <input type="text" id="userid" name="userid" required value="{{request.form.userid}}" class="form-control" placeholder="Github Login Id">
+                            </div>
+                            <div class="form-group">
+
+                                <input type="password" id="password" name="password" required value="{{request.form.password}}" class="form-control"  placeholder="Github Password">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" onclick="myFunction()" class="btn btn-outline-dark">Login</button>
+                            </div>
+                            <div>
+                              {% if error %}
+                                 <script>
+                                      function myFunction() {
+                                      alert("Oops!! Error encountered : {{ error }} ");
+                                      }
+                                 </script>
+
+                                <span style="color:red;">Oops!! Error encountered : {{ error }} </span>
+                                {% endif %}
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+  </div>
+  <script src="../static/js/wow.min.js"></script>
+             <script>
+             new WOW().init();
+             </script>
+</body>
+
+</html>

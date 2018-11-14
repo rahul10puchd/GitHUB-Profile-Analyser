@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>{{data['username']}} | Github Profile Analyser</title>
+      <link rel="stylesheet" href="../static/css/animate.css">
+      <link rel="stylesheet" href="../static/css/style2.css">
+      <script src="https://help.plot.ly/make-a-line-graph/#step-4-style-a-chart"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <link rel="shortcut icon" href="../static/images/githubicon.png" sizes="400x400">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <style>
+         body{
+         background-color: black;
+         }
+         nav{
+         position: fixed;
+         background: rgba(0, 0, 0, 0.0);
+         padding:0px 20px;
+         border: none;
+         opacity:1;
+         width: 100%;
+         display: inline-block;
+         z-index: 999;
+         }
+         .red{
+         background-color:black  !important;
+         color:#D4AF37;
+         }
+         section{
+         background-image: url(../static/images/web-design-background-montreal-1.jpg);
+         opacity: 1;
+         background-size: cover;
+         width: 100%;
+         height: 400px;
+         }
+         .box{
+         margin-top: 20px;
+         height: 1000px;
+         }
+         .nav-right{
+         float: right;
+         font-size: 20px;
+         }
+         .nav-left{
+         float: left;
+         }
+         .main{
+         display: inline-block;
+         width: 100%;
+         }
+         .table-dark{
+         background-color: black !important;
+         }
+         .name{
+         float: left;
+         padding: 20px;
+         color:black;
+         animation-delay: 2000;
+         }
+         .tagline{
+         float: right;
+         padding: 20px;
+         }
+         .ftext{
+         font-size: 70px;
+         padding-top:20px !important;
+         font-weight: bold;
+         font-family: Courier;
+         }
+         #plot{
+           background-color: #333 !important;
+         }
+         /* .paper_bgcolor (color):
+         default: "#fff"; */
+.main-svg{
+   background-color: transparent !important;
+}
+.nsewdrag{
+  background-color: transparent !important;
+}
+      </style>
+   </head>
+   <body>
+      <nav>
+         <div class="nav-left red">
+            <div class="brand-logo red wow fadeInLeft data-wow-duration="2s" ">
+               <a href="/" style="text-decoration: none; color: white !important;"> <font face="sans-serif">Github Analyser</font></a>
+            </div>
+         </div>
+         <div class="nav-right wow fadeInRight data-wow-duration="2s" data-wow-delay="1s" " >
+         <font face="sans-serif" style="cursor:pointer; ">&nbsp;Hi {{data['name']}}  <a href='/logout/' style="color: white !important; text-decoration: none !important; onmouseover="this.color=' #D4AF37 !important';" onmouseout="this.color='white';" >Logout</a>&nbsp;</font>
+         </div>
+
+      </nav>
+      <section>
+         <div class="texts">
+            <font face="sans-serif" color="white" size=5>
+               <ul type="disc">
+                  <li>
+                     <div class="t1 wow fadeInUp"  data-wow-duration="2s" data-wow-delay="2s">Hi {{data['name']}}, Analyse your GitHub account easily...</div>
+                  </li>
+                  <li>
+                     <div class="t1 wow fadeInUp"  data-wow-duration="1s" data-wow-delay="3.5s">Keep a check on your Profile...</div>
+                  </li>
+                  <li>
+                     <div class="t1 wow fadeInUp"  data-wow-duration="1s" data-wow-delay="5s">Gear up your life...</div>
+                  </li>
+               </ul>
+            </font>
+         </div>
+      </section>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-3 spacing">
+               <div class="side-bar  wow fadeInLeft data-wow-delay="1s" ">
+               <center>
+                  <img id="avatar" class="image-fluid" width="250" height="250" src="{{data['avatar']}}">
+                  <br>
+                  <br>
+                  {% if data['name']==None %}
+                  <p><b>Name:</b> {{data['username']}} </p>
+                  {% else %}
+                  <p><b>Name:</b> {{data['name']}} </p>
+                  {% endif %}
+                  <p><b>Email:</b> {{data['email']}}</p>
+                  <p><b>Bio:</b> {{data['bio']}}</p>
+                  <p><b>Following:</b> {{data['following']}}</p>
+                  <p><b>Followers:</b> {{data['followers']}}</p>
+                  <hr>
+               </center>
+            </div>
+         </div>
+         <div class="col-md-9">
+            <div class="table-responsive wow fadeInRight  data-wow-delay="1s"" >
+            <table class="table table-striped table-dark">
+               <thead>
+                  <tr>
+                     <th>No.</th>
+                     <th>Repo Name</th>
+                     <th>Clones</th>
+                     <th>Forks</th>
+                     <th>Unique Visitors</th>
+                     <th>Total Visitors</th>
+                     <th>Stars</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for i in data['repos_list'] %}
+                  <tr>
+                     <td>{{i[0]}}</td>
+                     <td>{{i[1]}}</td>
+                     <td>{{i[2]}}</td>
+                     <td>{{i[3]}}</td>
+                     <td>{{i[4]}}</td>
+                     <td>{{i[5]}}</td>
+                     <td>{{i[6]}}</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+      </div>
+
+      </div>
+      <div class="container">
+		<div id="plot" class="t1 wow fadeInUp">
+
+		</div>
+
+
+	</div>
+
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- Numeric JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+<script type="text/javascript">
+  b = [];
+  {% for i in data['repos_list'][0:5] %}
+    b.push("{{i[1]}}");
+  {% endfor %}
+
+(function() {
+var d3 = Plotly.d3;
+var WIDTH_IN_PERCENT_OF_PARENT = 100,
+    HEIGHT_IN_PERCENT_OF_PARENT = 60;
+var gd3 = d3.select('#plot')
+    .append('div')
+    .style({
+        width: WIDTH_IN_PERCENT_OF_PARENT + '%',
+        'margin-left': (100 - WIDTH_IN_PERCENT_OF_PARENT) / 2 + '%',
+        height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh',
+        'margin-top': (100 - HEIGHT_IN_PERCENT_OF_PARENT) / 2 + 'vh'
+    });
+var gd = gd3.node();
+Plotly.plot(gd, [{
+    type: 'bar',
+    x: b,
+    y: {{graph_y}},
+    marker: {
+        color: '#D4AF37',
+        // width:'100px',
+
+    }
+}], {
+    title: 'Popular Repositories',
+    font: {
+        size: 14,
+        color: '#D4AF37'
+    }
+  //   'layout': {
+  //   paper_bgcolor: "rgba(0,0,0,0)",
+  //   width: 320,
+  // }
+
+});
+window.onresize = function() {
+    Plotly.Plots.resize(gd);
+};
+})();
+// Plotly.newPlot('plot', data,layout);
+</script>
+      <footer>
+         <center>
+         </center>
+         <div class="row">
+            <div class="col-md-12">
+               <hr color="#D4AF37" size=9 width="100%">
+               <div class="text-center">
+                  <div class="ftext ">
+                     Made with Love  <i class="fa fa-heart" aria-hidden="true"></i>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="text-center wow fadeIn ">
+            <hr color="#D4AF37" size=9 width="30%">
+            <div class="icons">
+               <a href="https://www.facebook.com/rahul10.puchd"><i class="fa fa-facebook"></i></a>
+               <a href="https://twitter.com/im_rahulkr"><i class="fa fa-twitter"></i></a>
+           
+               <a href="https://github.com/rahul10-pu"><i class="fa fa-github"></i></a>
+               <a href="https://www.instagram.com/introvertmac10/"><i class="fa fa-instagram"></i></a>
+            </div>
+            &copy;Copyrights. All rights reserved.
+         </div>
+      </footer>
+      </div>
+      <script>
+         $(document).ready(function(){
+           $(window).scroll(function(){
+
+               if($(window).scrollTop()>100){
+                 $('nav').addClass('red');
+               }else{
+                 $('nav').removeClass('red');
+               }
+
+             });
+
+         });
+
+      </script>
+      <div class="layer"></div>
+      <script src="../static/js/wow.min.js"></script>
+      <script>
+         new WOW().init();
+      </script>
+   </body>
+</html>

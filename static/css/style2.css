@@ -1,0 +1,85 @@
+.fa-facebook, .fa-instagram, .fa-twitter, .fa-github, .fa-linkedin-square{
+  font-size: 20px;
+  color:#D4AF37;
+  background-color: black;
+  border:solid 2px #D4AF37;
+  padding: 5px 6px;
+  border-radius: 50px;
+  margin:6px;
+}
+.logo{
+padding:2%;
+}
+.fa-facebook{
+padding: 5px 9px;
+}
+.fa-facebook:hover,.fa-instagram:hover,.fa-github:hover,.fa-twitter:hover, .fa-linkedin-square:hover{
+background-color: #D4AF37;
+color:black;
+}
+footer{
+  background-color: black;
+  width:100%;
+  height:auto;
+  margin-bottom: 0 !important;
+  padding:3%;
+  font-family: sans-serif;
+  color:#D4AF37;
+  border-top: 1px #D4AF37;
+}
+.icon-heart-empty{
+color:#D4AF37;
+}
+
+   ul:not(.browser-default)>li {
+   list-style-type: disc;
+   }
+   ion-icon {
+font-size: 64px;
+color:#D4AF37;
+}
+   .texts{
+   padding-top: 150px;
+   padding-left: 80px;
+   }
+   .t1{
+   padding-bottom: 10px;
+   }
+   .icons{
+     padding:2%;
+   }
+
+   .side-bar{
+     background-color: black;
+     border-color:  2px #D4AF37;
+     /* border-right: 30px; */
+     height: 200px;
+     color:#D4AF37;
+     padding-top: 60px;
+   }
+   .spacing{
+     padding:0 !important;
+   }
+   table{
+     color:#D4AF37 !important;
+     boder:0 #D4AF37;
+     margin-top: 100px;
+     /* background-color: black; */
+   }
+   tr:hover{
+     background-color: #333 !important;
+   }
+.ruler
+{
+  color:#D4AF37;
+  background-color:#D4AF37;
+  height:2px;
+  width:90%;
+}
+#myDiv {
+  margin: 0 auto;
+  border: 1px solid black;
+  /* height: 85vh; */
+  /* min-height: 300px; */
+  width: 10px;
+}
