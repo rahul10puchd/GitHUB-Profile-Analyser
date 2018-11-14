@@ -31,13 +31,13 @@ The Github Profile Analyser tells the User about the no. of people visiting on h
 
 ### Stats Page | Main Page :-
 
-![MainPage](static/images/main.png)
+![MainPage](static/images/main.PNG)
 
 * The Third page is of **Graph Page** which has been produced using **PLOTLY**. Here a **2-D Graph** is generated which shows which repo is **more popular.**
 
 ### Graph Page :-
 
-![GraphPage](static/images/graph.png)
+![GraphPage](static/images/graph.PNG)
 
 * The Final page is of **Error Page** which displayed in case Server Breaks, Internet Connection User, Unauthenticated Login, **Page Not Found Error**.
 
